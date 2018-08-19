@@ -288,9 +288,6 @@ Pagination.prototype.setPaginationHtml = function () {
         this.div.find("li.numCon").eq(this.nowPage - 1).addClass("active")
     }
     this.setDisabel(this.nowPage);
-    setTimeout(function(){
-        $('html,body').scrollTop(0);
-    },60)
 };
 /*
 * @description 页码++
