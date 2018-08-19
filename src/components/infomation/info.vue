@@ -121,15 +121,6 @@
               </div><!--item end-->
             </div>
             <ul class="pagination film-list-pagination">
-              <!--<li class="disabled"><a href="#" aria-label="Frist"><i class="fa fa-angle-double-left"></i> 首页</a></li>-->
-              <!--<li class="disabled"><a href="#" aria-label="Previous"><i class="fa fa-angle-left"></i> 上一页</a></li>-->
-              <!--<li class="active" v-for="num in pageTotal"><a href="#">1 <span class="sr-only">(current)</span></a></li>-->
-              <!--<li ><a href="#">2</a></li>-->
-              <!--<li><a href="#">3</a></li>-->
-              <!--<li><a href="#">4</a></li>-->
-              <!--<li><a href="#">5</a></li>-->
-              <!--<li><a href="#" aria-label="Next">下一页 <i class="fa fa-angle-right"></i></a></li>-->
-              <!--<li><a href="#" aria-label="Last">最后 <i class="fa fa-angle-double-right"></i></a></li>-->
             </ul>
           </div>
           <!-- Tab panes -->
@@ -221,6 +212,9 @@
       },
       created(){
           this.getData()
+      },
+      mounted(){
+
       }
     }
 </script>

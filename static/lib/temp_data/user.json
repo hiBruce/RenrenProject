@@ -34,7 +34,8 @@
     "userName":"aYin86",
     "avatarUrl":"./static/images/head/header.jpg",
     "userType":1,
-    "userClass":2
+    "userClass":2,
+    "lastLoginDate":1534413688000
   },
   "tags":{
     "dynamicNum":1,
@@ -42,4 +43,6 @@
     "accPointsNum":20,
     "loginDaysNum":100
   }
+
+
 }

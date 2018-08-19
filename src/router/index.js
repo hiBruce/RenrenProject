@@ -18,6 +18,11 @@ export default new Router({
       path:"/info/:id",
       name:"infoDetail",
       component:() => import('@/components/infomation/detail'),
+    },
+    {
+      path:"/film",
+      name:"film",
+      component:() => import('@/components/film/film'),
     }
   ]
 })

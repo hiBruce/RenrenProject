@@ -13,7 +13,11 @@
        <router-link to="/info"  >资讯</router-link>
       </li>
       <li>字幕</li>
-      <li>影视库</li>
+      <li>
+        <router-link to="/film">
+          影视库
+        </router-link>
+      </li>
       <li>今日更新</li>
       <li>排行榜</li>
       <li class="ui-dropdown" data-toggle="tooltip" data-placement="right" title="更多菜单">

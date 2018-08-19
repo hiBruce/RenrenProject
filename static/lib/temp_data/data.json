@@ -150,7 +150,8 @@
     "episode":"S3E21",
     "url":""
   }],
-  "hotDowloadArr":[{
+  "hotDowloadArr":[
+    {
     "nameChs":"行尸走肉",
     "nameEng":"The Walking Dead",
     "episode":"S7E1",
@@ -267,7 +268,8 @@
     "type":"影视剧",
     "contry":"美国",
     "imgUrl":"./static/images/movies/movie1.jpg"
-  }],
+  }
+  ],
   "infomationObj":{
     "content1":{
       "banner":[{
