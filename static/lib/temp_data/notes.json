@@ -1,0 +1,101 @@
+{
+  //收藏相关参数
+  "collectinonArr": [
+    {
+      "name": "电影",
+      "num": "2"
+    },
+    {
+      "name": "美剧",
+      "num": "32"
+    },
+    {
+      "name": "日剧",
+      "num": "1"
+    },
+    {
+      "name": "韩剧",
+      "num": "1"
+    },
+    {
+      "name": "资讯",
+      "num": "4"
+    },
+    {
+      "name": "其他",
+      "num": "8"
+    }
+  ],
+  //消息相关参数
+  "messageArr": {
+    //私信数量
+    "privMesNum": 2,
+    //系统消息数量
+    "sysMesNum": 20,
+    //互动消息数量
+    "interMesNum": 30
+  },
+  "userInfo": {
+    "userName": "aYin86",
+    "avatarUrl": "../lib/style/images/head/header.jpg",
+    "userType": 1,
+    "userClass": 2
+  },
+  //用户信息相关数据
+  "tags": {
+    //动态数量
+    "dynamicNum": 1,
+    //评论数量
+    "commentNum": 20,
+    //积分数量
+    "accPointsNum": 20,
+    //登录天数
+    "loginDaysNum": 100
+  },
+
+  //banner图相关数据
+  "bannerImgArr": [
+    {
+      "url": "http://www.zimuzu.tv/",//跳转路径
+      "imgUrl": "../lib/style/images/banner/banner04.jpg",//轮播图地址
+      "reviewOfOpera": "剧评 《名姝》| 看似是男人的风流地，其实是女人的名利场",//评论1
+      "reviewOfOpera2": "内容很单纯的，就是讲述妓女的故事，香艳但不俗，随便截一张图就是文艺复兴style的油画。"//评论2
+    },
+    {
+      "url": "http://www.zimuzu.tv/",
+      "imgUrl": [//当多个图片拼接时，以数组形式传递
+        "../lib/style/images/movies/movie40.jpg",
+        "../lib/style/images/movies/movie39.jpg",
+        "../lib/style/images/info/info21.jpg",
+        "../lib/style/images/info/info30.jpg",
+        "../lib/style/images/info/info18.jpg"
+      ]
+    }
+  ],
+  //最新上映数据
+  "newfilmArr":[
+    {
+      "imgUrl":"../lib/style/images/movies/movie43.jpg",
+      "time":"7月30日",
+      "status":1,  //标记当前电影状态的，1：上映,2:首播，3：已过期
+      "type":"电影",
+      "sort":"动画",
+      "nameChs":"大护法",
+      "nameEng":"DAHUFA",
+      "country":"中国"
+    }
+  ],
+  //剧情更新数据
+  "plotUpdateArr":[
+    {
+      "desc":"S02E04",
+      "name":"人人字幕组",
+      "type":"影视剧",
+      "sort":"恐怖",
+      "country":"美国",
+      "letterLanguage":"双语字幕",
+      "definition":0,//清晰度 0:HDTVrip,1:720p,2:WEBHR,3:DVDrip，4:1080p
+      "imgUrl":"../lib/style/images/tvplay/tvplay19.jpg"
+    }
+  ]
+}
