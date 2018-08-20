@@ -13,8 +13,8 @@
        <router-link to="/info"  >资讯</router-link>
       </li>
       <li>字幕</li>
-      <li>
-        <router-link to="/film">
+      <li :class="{'active':$route.path == '/filmstore' }">
+        <router-link to="/filmstore">
           影视库
         </router-link>
       </li>

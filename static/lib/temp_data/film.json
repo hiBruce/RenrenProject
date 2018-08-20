@@ -153,6 +153,8 @@
     }
   ],
   "updateDataFromUserLastLogin":{
-
+      "tvNum":1,
+      "newTvNum":32,
+      "newFilmNum":20
   }
 }

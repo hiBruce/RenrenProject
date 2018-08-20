@@ -20,9 +20,9 @@ export default new Router({
       component:() => import('@/components/infomation/detail'),
     },
     {
-      path:"/film",
-      name:"film",
-      component:() => import('@/components/film/film'),
+      path:"/filmstore",
+      name:"filmstore",
+      component:() => import('@/components/filmStore/index'),
     }
   ]
 })

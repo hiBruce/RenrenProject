@@ -39,9 +39,14 @@
         <div class="col-xs-2">
           <div class="side-nav-warpper">
             <ul class="side-nav">
-              <li class="active"><a href="home-infomation.html">资讯</a></li>
+              <li class="active">
+                <route-link to="/info">资讯</route-link>
+              </li>
               <li><a href="home-subtitle.html">字幕</a></li>
-              <li><a href="home-film-list.html">影视库</a></li>
+              <li>
+                <router-link to="filmstore">影视库</router-link>
+
+              </li>
               <li><a href="home-ranking.html">排行榜</a></li>
               <li><a href="home-announce.html">公告</a></li>
               <li><a href="my-favourite.html">我的收藏</a></li>
