@@ -270,170 +270,56 @@
 
                 <div class="topic-wrapper">
                   <ul class="topic-tabs">
-                    <li class="active">1</li><li>2</li><li>3</li><li>4</li><li>5</li>
+                    <li v-for="(interact,ind) in interactArr" v-text="ind+1" :class="!ind?'active':''">
+
+                    </li>
                   </ul>
                   <div class="scroll-wrapper"><div class="scroll">
                     <div class="topic-content tab-content">
-                      <div class="topic">
+                      <div class="topic" v-for="(interact,ind) in interactArr">
                         <div class="img-item">
+                          <div class="hot" v-if="interact.hot">热门</div>
                           <div class="tags">
-                            <span class="name">舞蹈电影</span>
-                            <span class="type">电影&影视剧</span>
+                            <span class="name" v-text="interact.name"></span>
+                            <span class="type" v-text="interact.type"></span>
                             <ul class="corner bottom right">
-                              <li class="user">aYin</li>
-                              <li class="date">1天前</li>
+                              <li class="user" v-text="interact.author"></li>
+                              <li class="date" v-compute-date="interact.time"></li>
                             </ul>
                             <ul class="corner bottom left">
-                              <li class="view">2.3万</li>
+                              <li class="view" v-compute-numbybit="interact.viewed"></li>
                             </ul>
                           </div>
-                          <img src="static/images/info/info23.jpg" alt=""/>
+                          <img :src="interact.imgUrl" alt=""/>
                         </div>
                         <h3><a href="#">说出你最喜欢的翩翩起舞电影</a></h3>
-                        <p>《爱乐之城》席卷奥斯卡大事件，又让歌舞电影成功引起了广泛关注。这部一言不合就尬舞，有点宝莱坞感觉的好莱坞片，不仅赚足了眼泪、好评和票房，也让高司令和石头姐的那段舞蹈在观众脑中影响深刻。</p>
+                          <p v-text="interact.subTitle"  v-if="interact.interactType == 1"></p>
+                          <ul class="process-wrapper" v-else-if="interact.interactType == 2">
+                            <li v-for="progress in interact.processArr">
+                              <p v-text="progress.name"></p>
+                              <div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" :style="'width:'+progress.percent+'%'"></div></div>
+                            </li>
+                          </ul>
+                          <ul class="team-wrapper team-t2" v-else-if="interact.interactType == 3">
+                            <li class="team" v-for="(pkoption,ind) in interact.pkArr" :class="!ind?'team-a':'team-b'">
+                              <div class="progress">
+                                <div class="progress-bar" :style="'height:'+pkoption.percent+'%'"></div>
+                                <p class="count" v-compute-numbybit="pkoption.count"></p>
+                              </div>
+                              <p class="desc" v-text="pkoption.name">龙母</p>
+                            </li>
+                          </ul>
+                          <ul class="team-wrapper team-t4" v-else-if="interact.interactType == 4">
+                            <li class="team" v-for="(vote,ind) in interact.voteArr" :class="'team-'+getTeamClass(ind)">
+                              <div class="progress">
+                                <div class="progress-bar" :style="'height:'+vote.percent+'%'"></div>
+                                <p class="count" v-compute-numbybit="vote.count"></p>
+                              </div>
+                              <p class="desc" v-text="vote.option"></p>
+                            </li>
+                          </ul>
                       </div>
-                      <div class="topic">
-                        <div class="img-item">
-                          <div class="tags">
-                            <span class="name">好莱坞动漫</span>
-                            <span class="type">电影</span>
-                            <ul class="corner bottom right">
-                              <li class="user">aYin</li>
-                              <li class="date">1天前</li>
-                            </ul>
-                            <ul class="corner bottom left">
-                              <li class="view">1.2万</li>
-                            </ul>
-                          </div>
-                          <img src="static/images/info/info24.jpg" alt=""/>
-                        </div>
-                        <h3><a href="#">你最喜爱的好莱坞动漫形象(投票)</a></h3>
-                        <ul class="process-wrapper">
-                          <li>
-                            <p>阿宝-《功夫熊猫》</p>
-                            <div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 20%;"></div></div>
-                          </li>
-                          <li>
-                            <p>小黄人-《小黄人》</p>
-                            <div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"></div></div>
-                          </li>
-                          <li>
-                            <p>大白-《超能陆战队》</p>
-                            <div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div></div>
-                          </li>
-                          <li>
-                            <p>尼莫-《海底总动员》</p>
-                            <div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 15%;"></div></div>
-                          </li>
-                          <li>
-                            <p>汤姆&杰瑞-《猫和老鼠》XXAA</p>
-                            <div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 5%;"></div></div>
-                          </li>
-                          <li>
-                            <p>WallE-《机器人总动员》</p>
-                            <div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 19%;"></div></div>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="topic">
-                        <div class="img-item">
-                          <div class="hot">热门</div>
-                          <div class="tags">
-                            <span class="name">权利的游戏</span>
-                            <span class="type">影视剧</span>
-                            <ul class="corner bottom right">
-                              <li class="user">aYin</li>
-                              <li class="date">1天前</li>
-                            </ul>
-                            <ul class="corner bottom left">
-                              <li class="view">3.2万</li>
-                            </ul>
-                          </div>
-                          <img src="static/images/info/info29.jpg" alt=""/>
-                        </div>
-                        <h3><a href="#">龙母 对决 斯诺 最后谁会雄霸天下</a></h3>
-                        <ul class="team-wrapper team-t2">
-                          <li class="team team-a">
-                            <div class="progress">
-                              <div class="progress-bar" style="height:65%"></div>
-                              <p class="count">232,815</p>
-                            </div>
-                            <p class="desc">龙母</p>
-                          </li>
-                          <li class="team team-b">
-                            <div class="progress">
-                              <div class="progress-bar" style="height:35%"></div>
-                              <p class="count">192,815</p>
-                            </div>
-                            <p class="desc">斯诺</p>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="topic">
-                        <div class="img-item">
-                          <div class="tags">
-                            <span class="name">荧幕怪兽</span>
-                            <span class="type">电影&影视剧</span>
-                            <ul class="corner bottom right">
-                              <li class="user">aYin</li>
-                              <li class="date">1天前</li>
-                            </ul>
-                            <ul class="corner bottom left">
-                              <li class="view">63,928</li>
-                            </ul>
-                          </div>
-                          <img src="static/images/info/info28.jpg" alt=""/>
-                        </div>
-                        <h3><a href="#">影视作品中那些最为可怕的怪物</a></h3>
-                        <p>一次又一次，它们每每来势汹汹，但任凭它们有多厉害，最后总是逃不出被人类打败的命运。荧幕上的这些怪兽！有很多让人一眼就不能忘记！甚至变成梦魔。那么你最畏惧的荧幕怪物是什么？</p>
-                      </div>
-                      <div class="topic">
-                        <div class="img-item">
-                          <div class="tags">
-                            <span class="name">国内动漫</span>
-                            <span class="type">电影&影视剧</span>
-                            <ul class="corner bottom right">
-                              <li class="user">aYin</li>
-                              <li class="date">3天前</li>
-                            </ul>
-                            <ul class="corner bottom left">
-                              <li class="view">14,212</li>
-                            </ul>
-                          </div>
-                          <img src="static/images/info/info30.jpg" alt=""/>
-                        </div>
-                        <h3><a href="#">中国动漫未来5年能否崛起</a></h3>
-                        <ul class="team-wrapper team-t4">
-                          <li class="team team-a">
-                            <div class="progress">
-                              <div class="progress-bar" style="height:75%"></div>
-                              <p class="count">1.2万</p>
-                            </div>
-                            <p class="desc">一定能</p>
-                          </li>
-                          <li class="team team-b">
-                            <div class="progress">
-                              <div class="progress-bar" style="height:32%"></div>
-                              <p class="count">3,381</p>
-                            </div>
-                            <p class="desc">不好说</p>
-                          </li>
-                          <li class="team team-c">
-                            <div class="progress">
-                              <div class="progress-bar" style="height:25%"></div>
-                              <p class="count">2,815</p>
-                            </div>
-                            <p class="desc">很困难</p>
-                          </li>
-                          <li class="team team-d">
-                            <div class="progress">
-                              <div class="progress-bar" style="height:15%"></div>
-                              <p class="count">1,214</p>
-                            </div>
-                            <p class="desc">不能</p>
-                          </li>
-                        </ul>
-                      </div>
+
                     </div>
                   </div></div><!--scroll element-->
                 </div>
@@ -455,7 +341,7 @@
                       <img :src="hotCom.imgUrl" alt="" />
                     </div>
                     <p class="desc" v-text="hotCom.desc"></p>
-                    <p class="info">{{hotCom.user}} 评《{{hotCom.sourceName}}》  <span  v-compute-date="hotCom.date"></span><span class="score" v-text="hotCom.score"></span></p>
+                    <p class="info">{{hotCom.user}} 评《{{hotCom.sourceName}}》  <span  v-compute-date="hotCom.time"></span><span class="score" v-text="hotCom.score"></span></p>
                   </li>
 
                 </ul>
@@ -673,6 +559,7 @@
         newfilmArr:[],     //最新发布数据
         hotfilmArr:[],     //全球热映数据
         plotUpdateArr:[],  //剧情更新数据
+        interactArr:[],    //话题互动数据
       }
     },
     components: { searchCom },
@@ -698,8 +585,18 @@
 
       },
       /*
-            * init,初始化监听
-            * */
+      * 获取话题互动数据
+      * */
+      getInteractData:function(data){
+        var self = this;
+        Request.get('../static/lib/temp_data/interact.json',null,function(data){
+          self.interactArr = data.interactArr;
+        })
+
+      },
+      /*
+      * init,初始化监听
+      * */
       init:function(){
         //今日播出栏目 光标hover 与 slider 交互
         $(".today-tv-list").hover(function(){
@@ -798,16 +695,37 @@
         return name;
       },
       /*
-            * banner图的点击方法
-            * */
+        * banner图的点击方法
+        * */
       open:function(url){
         window.open(url);
       },
-
+      /*
+      * 获取话题互动中投票的一个class名
+      * */
+      getTeamClass:function(ind){
+        var str ='';
+        switch (ind){
+          case 0:
+            str='a';
+            break;
+          case 1:
+            str='b';
+            break;
+          case 2:
+            str='c';
+            break;
+          case 3:
+            str='d';
+            break;
+        };
+        return str;
+      }
 
     },
     created() {
-      this.getHomeData()
+      this.getHomeData();
+      this.getInteractData()
     },
     mounted() {
       this.init()

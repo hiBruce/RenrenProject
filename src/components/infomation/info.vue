@@ -12,7 +12,7 @@
             </div>
             <div class="panel-body">
               <ul class="info-list info-list-A1">
-                <li v-for="(info,ind) in infomationArr" v-if="ind<5">
+                <li v-for="(info,ind) in hotInfomationArr" v-if="ind<5">
                   <div class="img-item">
                     <div class="tags">
                       <span class="name" v-text="info.name"></span>
@@ -40,12 +40,11 @@
           <div class="side-nav-warpper">
             <ul class="side-nav">
               <li class="active">
-                <route-link to="/info">资讯</route-link>
+                <router-link to="/info">资讯</router-link>
               </li>
               <li><a href="home-subtitle.html">字幕</a></li>
               <li>
-                <router-link to="filmstore">影视库</router-link>
-
+                <router-link to="/filmstore">影视库</router-link>
               </li>
               <li><a href="home-ranking.html">排行榜</a></li>
               <li><a href="home-announce.html">公告</a></li>
@@ -109,17 +108,16 @@
                   <div class="detail-info">
                       <router-link :to="'/info/'+list.id">
                         <p class="title" v-text="list.title">
-
                         </p>
                       </router-link>
                     <p class="sub-title" v-if="list.subTitle" v-text="list.subTitle">
                     </p>
                     <p class="check">
                       <span class="fav" ><span v-compute-numbybit="list.fav"></span>次收藏</span>
-                      <span class="view"><span v-compute-numbybit="list.view"></span>次浏览</span>
+                      <span class="view"><span v-compute-numbybit="list.viewed"></span>次浏览</span>
                     </p>
                     <p class="info">
-                      <span class="user" v-text="'By '+list.user"></span>
+                      <span class="user" v-text="'By '+list.author"></span>
                       <span class="date" v-compute-date="list.date"></span>
                     </p>
                   </div>
@@ -142,7 +140,7 @@
         name: "info",
         data(){
           return {
-            infomationArr:{},  //热门资讯等数据
+            hotInfomationArr:[],  //热门资讯等数据
             infoListArr:[],    //资讯列表
             keyWord:"",        //资讯搜索关键字
             sort:"",           //分类条件
@@ -154,7 +152,10 @@
         },
         components: { searchCom },
       methods:{
-       getData(){
+          /*
+          * 获取列表数据
+          * */
+       getListData(){
          var self = this;
          var params={
            keyword :this.keyWord,
@@ -162,8 +163,7 @@
            page:this.page
          };
          Request.get('../static/lib/temp_data/info.json',params,(data)=>{
-            self.infomationArr = data.infomationArr;
-            self.infoListArr = data.infoListArr;
+            self.infoListArr = data.infomation;
             if(data.pageTotal){
               self.pageTotal = data.pageTotal;
               if(self.page == 1){
@@ -172,6 +172,15 @@
             }
          })
        },
+        /*
+        * 获取热门资讯
+        * */
+        getHotInfoData(){
+          var self = this;
+          Request.get('../static/lib/temp_data/hotInfo.json',null,(data)=>{
+            self.hotInfomationArr = data.hotInfomation;
+          })
+        },
         searchByKeyword(){
           this.page =1;
           this.getData()
@@ -193,11 +202,12 @@
         },
         /*
         * 切换分类查询
+        * 由于type是中文，找不到可以传递的参数字段，所以此处不做切换，到真实数据时应该是有参数传递的，加上传递参数即可
         * */
         changeType(type){
           this.filterType = type;
           this.page =1;
-          this.getData()
+          this.getListData()
         },
         /*
         * 过滤分类
@@ -216,7 +226,8 @@
         }
       },
       created(){
-          this.getData()
+          this.getListData();
+          this.getHotInfoData()
       },
       mounted(){
 

@@ -5,7 +5,16 @@ import Vue from 'vue'
 * */
 Vue.directive("compute-date",{
     bind:function(el,binding,vnode){
-        var time = binding.value;
+       try{
+         var time = Date.parse(new Date(binding.value));
+       }catch(e){
+         throw Error("请传入正确的时间格式")
+         return;
+       };
+      if(!time){
+        throw Error("请传入正确的时间格式")
+        return;
+      }
         var str ="";
         var nowStamp = Date.parse(new Date());
         var day = parseInt((nowStamp - time)/(60*60*1000*24));
@@ -61,6 +70,8 @@ Vue.directive("compute-numbybit",{
     var num= binding.value;
     if(num>=10000){
       num= (num/1000).toFixed(1)+'万'
+    }else if(!num){
+      num = 0;
     }else{
      num =  num && (num.toString().indexOf('.') != -1 ? num.toString().replace(/(\d)(?=(\d{3})+\.)/g, function($0, $1) {
         return $1 + ",";
