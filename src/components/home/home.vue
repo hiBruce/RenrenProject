@@ -44,15 +44,6 @@
               <div id="tvshow-slide" class="carousel carousel-fade" data-ride="carousel" v-if="panelTodayTvArr">
                 <ol class="carousel-indicators">
                   <li data-target="#tvshow-slide" data-slide-to="ind" v-for="(tv,ind) in panelTodayTvArr"  :class="ind ? '' :'active'"></li>
-                  <!--以下数据为填充数据，无法交互-->
-                  <li data-target="#tvshow-slide" data-slide-to="15" class=""></li>
-                  <li data-target="#tvshow-slide" data-slide-to="16" class=""></li>
-                  <li data-target="#tvshow-slide" data-slide-to="17" class=""></li>
-                  <li data-target="#tvshow-slide" data-slide-to="18" class=""></li>
-                  <li data-target="#tvshow-slide" data-slide-to="19" class=""></li>
-                  <li data-target="#tvshow-slide" data-slide-to="20" class=""></li>
-                  <li data-target="#tvshow-slide" data-slide-to="21" class=""></li>
-                  <li data-target="#tvshow-slide" data-slide-to="22" class=""></li>
                 </ol>
                 <div class="carousel-inner">
                   <div class="item " v-for="(tv,ind) in panelTodayTvArr"  :class="ind ? '' :'active'">
@@ -61,9 +52,9 @@
                   </div>
                 </div>
               </div>
-              <div class="panel-body scroll-wrapper today-tv-scroll" v-if="todayTvList">
-                <ul class="today-tv-list" >
-                  <li v-for="tv in todayTvList">
+              <div class="panel-body scroll-wrapper today-tv-scroll">
+                <ul class="today-tv-list"  v-if="panelTodayTvArr">
+                  <li v-for="tv in panelTodayTvArr">
                     <a :href="tv.url?tv.url:'javascript:void(0)'">
                       <span class="name-chs" v-text="tv.nameChs"></span>
                       <span class="name-eng" v-text="tv.nameEng"></span>
@@ -296,7 +287,7 @@
                           <p v-text="interact.subTitle"  v-if="interact.interactType == 1"></p>
                           <ul class="process-wrapper" v-else-if="interact.interactType == 2">
                             <li v-for="progress in interact.processArr">
-                              <p v-text="progress.name"></p>
+                              <p v-text="progress.name"><今日/p>
                               <div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" :style="'width:'+progress.percent+'%'"></div></div>
                             </li>
                           </ul>
@@ -551,7 +542,7 @@
       return {
         bannerImgArr:[],   //轮播banbner图数据
         panelTodayTvArr:[],//今日播出数据
-        todayTvList:[],    //今日播出的列表数据
+        // todayTvList:[],    //今日播出的列表数据
         hotDowloadArr:[],  //24小时热门下载数据
         infomationObj:{},  //热门资讯等数据
         hotShortComArr:[], //热门短评数据
@@ -573,7 +564,7 @@
         Request.get('../static/lib/temp_data/data.json',null,function(data){
           self.bannerImgArr = data.bannerImgArr;
           self.panelTodayTvArr = data.panelTodayTvArr;
-          self.todayTvList = data.todayTvList;
+          // self.todayTvList = data.todayTvList;
           self.hotDowloadArr = data.hotDowloadArr;
           self.infomationObj = data.infomationObj;
           self.hotShortComArr = data.hotShortComArr;
@@ -581,6 +572,7 @@
           self.newfilmArr = data.newfilmArr;
           self.hotfilmArr = data.hotfilmArr;
           self.plotUpdateArr = data.plotUpdateArr;
+          setTimeout(self.init,0)
         })
 
       },
@@ -617,18 +609,6 @@
           })
         });
 
-        //自定义滚动条初始化
-        $(".today-tv-scroll").mCustomScrollbar({
-          callbacks:{
-            onScrollStart: function(){$("body").css({overflow:"hidden"})},//滚动开始，屏蔽body滚动
-            onScroll: function(){$.timer.set("scrollWrapper",function(){$("body").css({overflow:""})},1000);}//滚动完毕，一秒后重新启用body滚动
-          }
-        });
-
-        //今日播出 剧信息复制到 slider中
-        $('#tvshow-slide').find(".carousel-inner .item").each(function(i,item){
-          $(item).find(".episode-info").html($(".today-tv-list li").eq(i).html());
-        });
         $.timer.set("load",function(){
           //热门资讯 影评剧评 新剧推荐 片单推荐 新闻资讯 栏目动画切换功能初始化（不要修改参数）
           $(".info-content").slideTabs({
@@ -728,7 +708,7 @@
       this.getInteractData()
     },
     mounted() {
-      this.init()
+
     }
   }
 </script>

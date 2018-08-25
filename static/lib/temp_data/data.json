@@ -30,121 +30,105 @@
   }],
   "panelTodayTvArr":[{
     "imgUrl":"./static/images/tvplay/tvplay1.jpg",
-    "episodeInfo":"episode info"
-  },{
-    "imgUrl":"./static/images/tvplay/tvplay2.jpg",
-    "episodeInfo":"episode info"
-  },{
-    "imgUrl":"./static/images/tvplay/tvplay3.jpg",
-    "episodeInfo":"episode info"
-  },{
-    "imgUrl":"./static/images/tvplay/tvplay4.jpg",
-    "episodeInfo":"episode info"
-  },{
-    "imgUrl":"./static/images/tvplay/tvplay5.jpg",
-    "episodeInfo":"episode info"
-  },{
-    "imgUrl":"./static/images/tvplay/tvplay6.jpg",
-    "episodeInfo":"episode info"
-  },{
-    "imgUrl":"./static/images/tvplay/tvplay7.jpg",
-    "episodeInfo":"episode info"
-  },{
-    "imgUrl":"./static/images/tvplay/tvplay8.jpg",
-    "episodeInfo":"episode info"
-  },{
-    "imgUrl":"./static/images/tvplay/tvplay9.jpg",
-    "episodeInfo":"episode info"
-  },{
-    "imgUrl":"./static/images/tvplay/tvplay10.jpg",
-    "episodeInfo":"episode info"
-  },{
-    "imgUrl":"./static/images/tvplay/tvplay11.jpg",
-    "episodeInfo":"episode info"
-  },{
-    "imgUrl":"./static/images/tvplay/tvplay12.jpg",
-    "episodeInfo":"episode info"
-  },{
-    "imgUrl":"./static/images/tvplay/tvplay13.jpg",
-    "episodeInfo":"episode info"
-  },{
-    "imgUrl":"./static/images/tvplay/tvplay14.jpg",
-    "episodeInfo":"episode info"
-  },{
-    "imgUrl":"./static/images/tvplay/tvplay15.jpg",
-    "episodeInfo":"episode info"
-  }],
-  "todayTvList":[{
+    "episodeInfo":"episode info",
     "nameChs":"行尸走肉",
     "nameEng":"The Walking Dead",
     "episode":"S02E01",
     "url":""
   },{
+    "imgUrl":"./static/images/tvplay/tvplay2.jpg",
+    "episodeInfo":"episode info",
     "nameChs":"浮生若寄",
     "nameEng":"Crashing",
     "episode":"S03E05",
     "url":""
   },{
+    "imgUrl":"./static/images/tvplay/tvplay3.jpg",
+    "episodeInfo":"episode info",
     "nameChs":"随性所欲",
     "nameEng":"Casual",
     "episode":"S01E03",
     "url":""
   },{
+    "imgUrl":"./static/images/tvplay/tvplay4.jpg",
+    "episodeInfo":"episode info",
     "nameChs":"全境通告",
     "nameEng":"A.P.B.",
     "episode":"S02E01",
     "url":""
   },{
+    "imgUrl":"./static/images/tvplay/tvplay5.jpg",
+    "episodeInfo":"episode info",
     "nameChs":"世界上最后一个男人",
     "nameEng":"The Last Man on Earth",
     "episode":"S05E18",
     "url":""
   },{
+    "imgUrl":"./static/images/tvplay/tvplay6.jpg",
+    "episodeInfo":"episode info",
     "nameChs":"衰姐们",
     "nameEng":"Girls",
     "episode":"S11E05",
     "url":""
   },{
+    "imgUrl":"./static/images/tvplay/tvplay7.jpg",
+    "episodeInfo":"episode info",
     "nameChs":"开心汉堡店",
     "nameEng":"Bob's Burgers",
     "episode":"S07E11",
     "url":""
   },{
+    "imgUrl":"./static/images/tvplay/tvplay8.jpg",
+    "episodeInfo":"episode info",
     "nameChs":"亿万",
     "nameEng":"Billions",
     "episode":"S01E05",
     "url":""
   },{
+    "imgUrl":"./static/images/tvplay/tvplay9.jpg",
+    "episodeInfo":"episode info",
     "nameChs":"24小时遗产",
     "nameEng":"24 Legacy",
     "episode":"S02E07",
     "url":""
   },{
+    "imgUrl":"./static/images/tvplay/tvplay10.jpg",
+    "episodeInfo":"episode info",
     "nameChs":"飓风营救",
     "nameEng":"Taken",
     "episode":"S02E05",
     "url":""
   },{
+    "imgUrl":"./static/images/tvplay/tvplay11.jpg",
+    "episodeInfo":"episode info",
     "nameChs":"殖民地",
     "nameEng":"Colony",
     "episode":"S05E11",
     "url":""
   },{
+    "imgUrl":"./static/images/tvplay/tvplay12.jpg",
+    "episodeInfo":"episode info",
     "nameChs":"美国众神",
     "nameEng":"American God",
     "episode":"S04E08",
     "url":""
   },{
+    "imgUrl":"./static/images/tvplay/tvplay13.jpg",
+    "episodeInfo":"episode info",
     "nameChs":"异人",
     "nameEng":"Inhumens",
     "episode":"S01E03",
     "url":""
   },{
+    "imgUrl":"./static/images/tvplay/tvplay14.jpg",
+    "episodeInfo":"episode info",
     "nameChs":"生活大爆炸",
     "nameEng":"The Big Bang Theory",
     "episode":"S13E21",
     "url":""
   },{
+    "imgUrl":"./static/images/tvplay/tvplay15.jpg",
+    "episodeInfo":"episode info",
     "nameChs":"绝命律师",
     "nameEng":"Better Call Saul",
     "episode":"S3E21",

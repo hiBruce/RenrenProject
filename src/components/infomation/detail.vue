@@ -100,14 +100,33 @@
                   <button class="comment-btn btn" @click="submitComment"><span class="desc">发表评论</span></button>
                 </div>
                 <div class="comment-list">
-                  <div class="comment-item">
+                  <div class="comment-item" v-for="(comment,ind) in commentList">
                     <div class="comment-title">
                       <div class="comment-title-left">
                         <div class="user-head">
-                          <img src="static/images/head/header.jpg" alt=""/>
+                          <img :src="comment.avatar" alt=""/>
                         </div>
-                        <a href="#" class="user-name">aYin</a>
-                        <span class="user-class user-class-6">至尊会员</span>
+                        <a href="#" class="user-name" v-text="comment.author"></a>
+                        <span class="user-class " :class="'user-class-'+comment.userClass">
+                          <template v-if="!comment.userClass">
+                              普通会员
+                          </template>
+                          <template v-else-if="comment.userClass ==1">
+                              初级会员
+                          </template>
+                          <template v-else-if="comment.userClass ==2">
+                              中级会员
+                          </template>
+                          <template v-else-if="comment.userClass ==3">
+                              高级会员
+                          </template>
+                          <template v-else-if="comment.userClass ==5">
+                              黄金会员
+                          </template>
+                          <template v-else-if="comment.userClass ==6">
+                              至尊会员
+                          </template>
+                        </span>
                         <span class="admin-ctrl"><!--管理员菜单-->
 													<a href="#"><i class="fa fa-arrow-alt-to-top"></i>置顶</a>
 													<a href="#"><i class="fa fa-edit"></i>编辑</a>
@@ -116,23 +135,22 @@
 												</span>
                       </div>
                       <div class="comment-title-right">
-                        <span class="date">今天 12:22</span>
-                        <span class="top">置顶</span>
-                        <span class="hot">Hot</span>
+                        <span class="date"  v-compute-date="comment.time"></span>
+                        <span class="top" v-if="comment.top">置顶</span>
+                        <span class="hot" v-if="comment.hot">Hot</span>
                         <span class="floor">我的评论</span>
-                        <span class="floor">#2</span>
+                        <span class="floor">#{{ind+3}}</span>
                         <!--置顶有三种方式，hot置顶，top管理员置顶,self置顶，每种置顶仅显示两条。--->
                       </div>
                     </div>
                     <div class="comment-body">
-                      <p>发生不好的事情不要怨天尤人的，如果一定要追踪源头也不是snow的问题，而是布兰发出的警告导致的。</p>
-                      <p>龙母不去救snow一行人，那就不知道夜魔有着这样的能力，知己知彼方能百战百胜，这次龙的陨落也给龙母提了个醒，自己不是无敌的。不管面对兰尼斯特还是夜魔。我猜测布兰应该是知道后续的发展（包括龙的死亡和被复活），但是时间线是不允许改动的，不管是已经发生的还是将要发生的。</p>
+                      <p v-html="comment.content"></p>
                     </div>
                     <div class="comment-ctrl">
-                      <a class="comment-showSub" data-num="346"><i class="fa fa-comments"></i><span class="desc">346 条评论</span></a>
+                      <a class="comment-showSub" data-num="346"><i class="fa fa-comments"></i><span class="desc" v-text="comment.recommentNum+'条评论'"></span></a>
                       <a href="#"><i class="fa fa-reply"></i>评论</a>
-                      <a href="#"><i class="fa fa-thumbs-up"></i>赞<span class="badge">22</span></a>
-                      <a href="#"><i class="fa fa-thumbs-down"></i>踩<span class="badge">5</span></a>
+                      <a href="#"><i class="fa fa-thumbs-up"></i>赞<span class="badge" v-text="comment.agreedNum"></span></a>
+                      <a href="#"><i class="fa fa-thumbs-down"></i>踩<span class="badge"  v-text="comment.opposeNum"></span></a>
                       <a href="#"><i class="fa fa-user-secret"></i>举报</a>
                     </div>
 
@@ -147,67 +165,60 @@
                           </div>
                         </div>
                       </div>
-                      <div class="comment-item">
-                        <div class="comment-title">
-                          <div class="comment-title-left">
-                            <div class="user-head">
-                              <img src="static/images/head/putin.png" alt=""/>
-                            </div>
-                            <a href="#" class="user-name">Putin</a>回复 Obama
-                            <span class="user-class user-class-2">初级会员</span>
-                            <span class="comment-show">
-															<a href="#" data-toggle="modal" data-target="#dialogue-view"><i class="fa fa-comments"></i>查看对话</a>
+                     <template v-if="comment.comment && comment.comment.length>0">
+                       <div class="comment-item" v-for="userComment in comment.comment">
+                         <div class="comment-title">
+                           <div class="comment-title-left">
+                             <div class="user-head">
+                               <img :src="userComment.avatar" alt=""/>
+                             </div>
+                             <a href="#" class="user-name">{{userComment.author}}</a>回复 {{userComment.recomment}}
+                             <span class="user-class" :class="'user-class-'+comment.userClass">
+                                <template v-if="!comment.userClass">
+                                    普通会员
+                                </template>
+                                <template v-else-if="comment.userClass ==1">
+                                    初级会员
+                                </template>
+                                <template v-else-if="comment.userClass ==2">
+                                    中级会员
+                                </template>
+                                <template v-else-if="comment.userClass ==3">
+                                    高级会员
+                                </template>
+                                <template v-else-if="comment.userClass ==5">
+                                    黄金会员
+                                </template>
+                                <template v-else-if="comment.userClass ==6">
+                                    至尊会员
+                                </template>
+                             </span>
+                             <span class="comment-show">
+															<a href="#" data-toggle="modal" data-target="#dialogue-view">
+                                <i class="fa fa-comments"></i>查看对话</a>
 														</span>
-                            <span class="admin-ctrl"><!--管理员菜单-->
+                             <span class="admin-ctrl"><!--管理员菜单-->
 															<a href="#"><i class="fa fa-arrow-alt-to-top"></i>置顶</a>
 															<a href="#"><i class="fa fa-edit"></i>编辑</a>
 															<a href="#"><i class="fa fa-trash"></i>删除</a>
 															<a href="#"><i class="fa fa-ban"></i>禁止</a>
 														</span>
-                          </div>
-                          <div class="comment-title-right">
-                            <span class="date">今天 12:22</span>
-                          </div>
-                        </div>
-                        <div class="comment-body">
-                          <p>发生不好的事情不要怨天尤人的，如果一定要追踪源头也不是snow的问题，而是布兰发出的警告导致的。</p>
-                        </div>
-                        <div class="comment-ctrl">
-                          <a href="#"><i class="fa fa-reply"></i>评论</a>
-                          <a href="#"><i class="fa fa-thumbs-up"></i>赞<span class="badge">1</span></a>
-                          <a href="#"><i class="fa fa-thumbs-down"></i>踩</a>
-                          <a href="#"><i class="fa fa-user-secret"></i>举报</a>
-                        </div>
-                      </div>
-                      <div class="comment-item">
-                        <div class="comment-title">
-                          <div class="comment-title-left">
-                            <div class="user-head">
-                              <img src="static/images/head/obama.png" alt=""/>
-                            </div>
-                            <a href="#" class="user-name">Obama</a>
-                            <span class="user-class user-class-4">高级会员</span>
-                            <span class="admin-ctrl"><!--管理员菜单-->
-															<a href="#"><i class="fa fa-arrow-alt-to-top"></i>置顶</a>
-															<a href="#"><i class="fa fa-edit"></i>编辑</a>
-															<a href="#"><i class="fa fa-trash"></i>删除</a>
-															<a href="#"><i class="fa fa-ban"></i>禁止</a>
-														</span>
-                          </div>
-                          <div class="comment-title-right">
-                            <span class="date">今天 12:22</span>
-                          </div>
-                        </div>
-                        <div class="comment-body">
-                          <p>龙母不去救snow一行人，那就不知道夜魔有着这样的能力，知己知彼方能百战百胜，这次龙的陨落也给龙母提了个醒，自己不是无敌的。不管面对兰尼斯特还是夜魔。</p>
-                        </div>
-                        <div class="comment-ctrl">
-                          <a href="#"><i class="fa fa-reply"></i>评论</a>
-                          <a href="#"><i class="fa fa-thumbs-up"></i>赞<span class="badge">1</span></a>
-                          <a href="#"><i class="fa fa-thumbs-down"></i>踩</a>
-                          <a href="#"><i class="fa fa-user-secret"></i>举报</a>
-                        </div>
-                      </div>
+                           </div>
+                           <div class="comment-title-right">
+                             <span class="date"  v-compute-date="userComment.time"></span>
+                           </div>
+                         </div>
+                         <div class="comment-body">
+                           <p v-text="userComment.content"></p>
+                         </div>
+                         <div class="comment-ctrl">
+                           <a href="#"><i class="fa fa-reply"></i>评论</a>
+                           <a href="#"><i class="fa fa-thumbs-up"></i>赞<span class="badge">1</span></a>
+                           <a href="#"><i class="fa fa-thumbs-down"></i>踩</a>
+                           <a href="#"><i class="fa fa-user-secret"></i>举报</a>
+                         </div>
+                       </div>
+                     </template>
                       <ul class="pagination-simple">
                         <li class="disabled"><a href="#" aria-label="Frist"><i class="fa fa-angle-double-left"></i> 首页</a></li>
                         <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
@@ -217,103 +228,102 @@
                         <li><a href="#">5</a></li>
                         <li><a href="#" aria-label="Last">最后 <i class="fa fa-angle-double-right"></i></a></li>
                       </ul>
-
                     </div>
 
                   </div>
-                  <div class="comment-item">
-                    <div class="comment-title">
-                      <div class="comment-title-left">
-                        <div class="user-head">
-                          <img src="static/images/head/trump.png" alt=""/>
-                        </div>
-                        <a href="#" class="user-name">Trump Something</a>
-                        <span class="user-class user-class-3">中级会员</span>
-                        <span class="admin-ctrl"><!--管理员菜单-->
-													<a href="#"><i class="fa fa-arrow-alt-to-top"></i>置顶</a>
-													<a href="#"><i class="fa fa-edit"></i>编辑</a>
-													<a href="#"><i class="fa fa-trash"></i>删除</a>
-													<a href="#"><i class="fa fa-ban"></i>禁止</a>
-												</span>
-                      </div>
-                      <div class="comment-title-right">
-                        <span class="date">今天 12:22</span>
-                        <span class="floor">#1</span>
-                      </div>
-                    </div>
-                    <div class="comment-body">
-                      <p>第7季简直糟糕！！小恶魔从到龙妈身边出的主意没有一个不坑的！坑队友！坑龙！完全没有在君临那种精彩的表现！！不是间谍是什么？？？</p>
-                    </div>
-                    <div class="comment-ctrl">
-                      <a class="comment-showSub" data-num="0"><i class="fa fa-comments"></i><span class="desc">0 条评论</span></a>
-                      <a href="#"><i class="fa fa-reply"></i>评论</a>
-                      <a href="#"><i class="fa fa-thumbs-up"></i>赞<span class="badge">22</span></a>
-                      <a href="#"><i class="fa fa-thumbs-down"></i>踩<span class="badge">5</span></a>
-                      <a href="#"><i class="fa fa-user-secret"></i>举报</a>
-                    </div>
-                  </div>
-                  <div class="comment-item">
-                    <div class="comment-title">
-                      <div class="comment-title-left">
-                        <div class="user-head">
-                          <img src="static/images/head/hepburn.png" alt=""/>
-                        </div>
-                        <a href="#" class="user-name">Audrey Hepburn</a>
-                        <span class="user-class user-class-5">黄金会员</span>
-                        <span class="admin-ctrl"><!--管理员菜单-->
-													<a href="#"><i class="fa fa-arrow-alt-to-top"></i>置顶</a>
-													<a href="#"><i class="fa fa-edit"></i>编辑</a>
-													<a href="#"><i class="fa fa-trash"></i>删除</a>
-													<a href="#"><i class="fa fa-ban"></i>禁止</a>
-												</span>
-                      </div>
-                      <div class="comment-title-right">
-                        <span class="date">今天 12:22</span>
-                        <span class="floor">#2</span>
-                      </div>
-                    </div>
-                    <div class="comment-body">
-                      <p>我觉得S7E7中瑟曦囚禁龙母，在S8中龙母会死掉，斯诺也会死掉。Arya会杀死瑟曦，小指头会当国王。在冰与火的世界中，谁为老百姓谁就会死。</p>
-                    </div>
-                    <div class="comment-ctrl">
-                      <a class="comment-showSub" data-num="0"><i class="fa fa-comments"></i><span class="desc">0 条评论</span></a>
-                      <a href="#"><i class="fa fa-reply"></i>评论</a>
-                      <a href="#"><i class="fa fa-thumbs-up"></i>赞<span class="badge">22</span></a>
-                      <a href="#"><i class="fa fa-thumbs-down"></i>踩<span class="badge">5</span></a>
-                      <a href="#"><i class="fa fa-user-secret"></i>举报</a>
-                    </div>
-                  </div>
-                  <div class="comment-item">
-                    <div class="comment-title">
-                      <div class="comment-title-left">
-                        <div class="user-head">
-                          <img src="static/images/head/gray.png" alt=""/>
-                        </div>
-                        <a href="#" class="user-name">new user</a>
-                        <span class="user-class user-class-1">新会员</span>
-                        <span class="admin-ctrl"><!--管理员菜单-->
-													<a href="#"><i class="fa fa-arrow-alt-to-top"></i>置顶</a>
-													<a href="#"><i class="fa fa-edit"></i>编辑</a>
-													<a href="#"><i class="fa fa-trash"></i>删除</a>
-													<a href="#"><i class="fa fa-ban"></i>禁止</a>
-												</span>
-                      </div>
-                      <div class="comment-title-right">
-                        <span class="date">今天 12:22</span>
-                        <span class="floor">#2</span>
-                      </div>
-                    </div>
-                    <div class="comment-body">
-                      <p>最想不通的一点是既然长城有魔法，夜王过不来，为什么还要组织人出去灭，加点人手驻守长城不就好了？长城的魔法被人遗忘，那些大学士查查历史书不就知道了？山姆也不知道？布兰开了挂的也不知道？求解释！</p>
-                    </div>
-                    <div class="comment-ctrl">
-                      <a class="comment-showSub" data-num="0"><i class="fa fa-comments"></i><span class="desc">0 条评论</span></a>
-                      <a href="#"><i class="fa fa-reply"></i>评论</a>
-                      <a href="#"><i class="fa fa-thumbs-up"></i>赞<span class="badge">22</span></a>
-                      <a href="#"><i class="fa fa-thumbs-down"></i>踩<span class="badge">5</span></a>
-                      <a href="#"><i class="fa fa-user-secret"></i>举报</a>
-                    </div>
-                  </div>
+                  <!--<div class="comment-item">-->
+                    <!--<div class="comment-title">-->
+                      <!--<div class="comment-title-left">-->
+                        <!--<div class="user-head">-->
+                          <!--<img src="static/images/head/trump.png" alt=""/>-->
+                        <!--</div>-->
+                        <!--<a href="#" class="user-name">Trump Something</a>-->
+                        <!--<span class="user-class user-class-3">中级会员</span>-->
+                        <!--<span class="admin-ctrl">&lt;!&ndash;管理员菜单&ndash;&gt;-->
+													<!--<a href="#"><i class="fa fa-arrow-alt-to-top"></i>置顶</a>-->
+													<!--<a href="#"><i class="fa fa-edit"></i>编辑</a>-->
+													<!--<a href="#"><i class="fa fa-trash"></i>删除</a>-->
+													<!--<a href="#"><i class="fa fa-ban"></i>禁止</a>-->
+												<!--</span>-->
+                      <!--</div>-->
+                      <!--<div class="comment-title-right">-->
+                        <!--<span class="date">今天 12:22</span>-->
+                        <!--<span class="floor">#1</span>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="comment-body">-->
+                      <!--<p>第7季简直糟糕！！小恶魔从到龙妈身边出的主意没有一个不坑的！坑队友！坑龙！完全没有在君临那种精彩的表现！！不是间谍是什么？？？</p>-->
+                    <!--</div>-->
+                    <!--<div class="comment-ctrl">-->
+                      <!--<a class="comment-showSub" data-num="0"><i class="fa fa-comments"></i><span class="desc">0 条评论</span></a>-->
+                      <!--<a href="#"><i class="fa fa-reply"></i>评论</a>-->
+                      <!--<a href="#"><i class="fa fa-thumbs-up"></i>赞<span class="badge">22</span></a>-->
+                      <!--<a href="#"><i class="fa fa-thumbs-down"></i>踩<span class="badge">5</span></a>-->
+                      <!--<a href="#"><i class="fa fa-user-secret"></i>举报</a>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                  <!--<div class="comment-item">-->
+                    <!--<div class="comment-title">-->
+                      <!--<div class="comment-title-left">-->
+                        <!--<div class="user-head">-->
+                          <!--<img src="static/images/head/hepburn.png" alt=""/>-->
+                        <!--</div>-->
+                        <!--<a href="#" class="user-name">Audrey Hepburn</a>-->
+                        <!--<span class="user-class user-class-5">黄金会员</span>-->
+                        <!--<span class="admin-ctrl">&lt;!&ndash;管理员菜单&ndash;&gt;-->
+													<!--<a href="#"><i class="fa fa-arrow-alt-to-top"></i>置顶</a>-->
+													<!--<a href="#"><i class="fa fa-edit"></i>编辑</a>-->
+													<!--<a href="#"><i class="fa fa-trash"></i>删除</a>-->
+													<!--<a href="#"><i class="fa fa-ban"></i>禁止</a>-->
+												<!--</span>-->
+                      <!--</div>-->
+                      <!--<div class="comment-title-right">-->
+                        <!--<span class="date">今天 12:22</span>-->
+                        <!--<span class="floor">#2</span>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="comment-body">-->
+                      <!--<p>我觉得S7E7中瑟曦囚禁龙母，在S8中龙母会死掉，斯诺也会死掉。Arya会杀死瑟曦，小指头会当国王。在冰与火的世界中，谁为老百姓谁就会死。</p>-->
+                    <!--</div>-->
+                    <!--<div class="comment-ctrl">-->
+                      <!--<a class="comment-showSub" data-num="0"><i class="fa fa-comments"></i><span class="desc">0 条评论</span></a>-->
+                      <!--<a href="#"><i class="fa fa-reply"></i>评论</a>-->
+                      <!--<a href="#"><i class="fa fa-thumbs-up"></i>赞<span class="badge">22</span></a>-->
+                      <!--<a href="#"><i class="fa fa-thumbs-down"></i>踩<span class="badge">5</span></a>-->
+                      <!--<a href="#"><i class="fa fa-user-secret"></i>举报</a>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                  <!--<div class="comment-item">-->
+                    <!--<div class="comment-title">-->
+                      <!--<div class="comment-title-left">-->
+                        <!--<div class="user-head">-->
+                          <!--<img src="static/images/head/gray.png" alt=""/>-->
+                        <!--</div>-->
+                        <!--<a href="#" class="user-name">new user</a>-->
+                        <!--<span class="user-class user-class-1">新会员</span>-->
+                        <!--<span class="admin-ctrl">&lt;!&ndash;管理员菜单&ndash;&gt;-->
+													<!--<a href="#"><i class="fa fa-arrow-alt-to-top"></i>置顶</a>-->
+													<!--<a href="#"><i class="fa fa-edit"></i>编辑</a>-->
+													<!--<a href="#"><i class="fa fa-trash"></i>删除</a>-->
+													<!--<a href="#"><i class="fa fa-ban"></i>禁止</a>-->
+												<!--</span>-->
+                      <!--</div>-->
+                      <!--<div class="comment-title-right">-->
+                        <!--<span class="date">今天 12:22</span>-->
+                        <!--<span class="floor">#2</span>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="comment-body">-->
+                      <!--<p>最想不通的一点是既然长城有魔法，夜王过不来，为什么还要组织人出去灭，加点人手驻守长城不就好了？长城的魔法被人遗忘，那些大学士查查历史书不就知道了？山姆也不知道？布兰开了挂的也不知道？求解释！</p>-->
+                    <!--</div>-->
+                    <!--<div class="comment-ctrl">-->
+                      <!--<a class="comment-showSub" data-num="0"><i class="fa fa-comments"></i><span class="desc">0 条评论</span></a>-->
+                      <!--<a href="#"><i class="fa fa-reply"></i>评论</a>-->
+                      <!--<a href="#"><i class="fa fa-thumbs-up"></i>赞<span class="badge">22</span></a>-->
+                      <!--<a href="#"><i class="fa fa-thumbs-down"></i>踩<span class="badge">5</span></a>-->
+                      <!--<a href="#"><i class="fa fa-user-secret"></i>举报</a>-->
+                    <!--</div>-->
+                  <!--</div>-->
                 </div><!--comment-list end-->
                 <div class="load-more">
                   <a href="#">点击这里加载更多内容 <i class="far fa-angle-double-down"></i></a>
@@ -469,7 +479,8 @@
       data(){
         return{
           infoDeatail:'',    //详情数据
-          commentContent:"", //评论内容
+          commentContent:"", //用户输入评论
+          commentList:[],    //评论数据
         }
       },
       components: { searchCom },
@@ -479,6 +490,7 @@
           var params={};
           Request.get('../static/lib/temp_data/infoDetail.json',params,(result)=>{
             self.infoDeatail = result.infoDeatail2;
+            self.commentList = result.commentList;
           })
         },
         getTeamClass(ind){
