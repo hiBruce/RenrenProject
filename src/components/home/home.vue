@@ -82,7 +82,7 @@
               </div>
               <div class="panel-body">
                 <ul class="play-list play-list-topdown" v-if="hotDowloadArr">
-                  <li v-for="(hotDownLoad,ind) in hotDowloadArr">
+                  <li v-for="(hotDownLoad,ind) in hotDowloadArr" v-if="ind<14">
                     <div class="img-item">
                       <div class="tags">
                         <span class="name" v-text="ind+1"></span>
@@ -564,8 +564,6 @@
         Request.get('../static/lib/temp_data/data.json',null,function(data){
           self.bannerImgArr = data.bannerImgArr;
           self.panelTodayTvArr = data.panelTodayTvArr;
-          // self.todayTvList = data.todayTvList;
-          self.hotDowloadArr = data.hotDowloadArr;
           self.infomationObj = data.infomationObj;
           self.hotShortComArr = data.hotShortComArr;
           self.snsActivity = data.snsActivity;
@@ -574,7 +572,15 @@
           self.plotUpdateArr = data.plotUpdateArr;
           setTimeout(self.init,0)
         })
-
+      },
+      /*
+      * 获取24小时热门下载
+      **/
+      getHotDownLoadDat(){
+        var self = this;
+        Request.get('../static/lib/temp_data/24HoursDownload.json',null,function(data){
+          self.hotDowloadArr = data.hotDownload;
+        })
       },
       /*
       * 获取话题互动数据
@@ -584,7 +590,15 @@
         Request.get('../static/lib/temp_data/interact.json',null,function(data){
           self.interactArr = data.interactArr;
         })
-
+      },
+      /*
+      * 获取热门资讯
+      * */
+      getHotInfoData(){
+        var self = this;
+        Request.get('../static/lib/temp_data/hotInfo.json',null,(data)=>{
+          self.hotInfomationArr = data.hotInfomation;
+        })
       },
       /*
       * init,初始化监听
@@ -705,7 +719,8 @@
     },
     created() {
       this.getHomeData();
-      this.getInteractData()
+      this.getInteractData();
+      this.getHotDownLoadDat();
     },
     mounted() {
 
