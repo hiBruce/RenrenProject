@@ -162,18 +162,18 @@ Request.all = (requestArr,successCb,errorCb)=>{
       var newFun =''
       if(ele.method.toLowerCase() == 'get'){
         newFun = function(){
-         return  axios.get(url,{params:params})
+         return  axios.get(ele.url,{params:ele.params})
         }
       }else if(ele.method.toLowerCase() == 'post'){
         newFun = function(){
-          return  axios.post(url,params)
+          return  axios.post(ele.url,ele.params)
         }
       }
       paramArr.push(newFun())
     });
     axios.all(paramArr)
-      .then(axios.spread(function () {
-        successCb && successCb(arguments)
+      .then(axios.spread(function (...data) {
+        successCb && successCb(data)
       }));
   }else{
     throw Error('Request.all抛出错误：请传入正确的参数类型（第一个参数为数组对象）')

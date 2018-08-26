@@ -213,7 +213,7 @@
 	    {
 	    	"rank":4328,
 	    	"score":7.7,
-	    	"nameChs":"魔兽", 
+	    	"nameChs":"魔兽",
 	    	"nameEng":"Warcraft",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -228,7 +228,7 @@
 	    {
 	    	"rank":4190,
 	    	"score":7.6,
-	    	"nameChs":"功夫熊猫3", 
+	    	"nameChs":"功夫熊猫3",
 	    	"nameEng":"Kung Fu Panda 3",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -243,7 +243,7 @@
 	    {
 	    	"rank":131,
 	    	"score":9.1,
-	    	"nameChs":"疯狂动物城", 
+	    	"nameChs":"疯狂动物城",
 	    	"nameEng":"Zootopia",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -258,7 +258,7 @@
 	    {
 	    	"rank":131,
 	    	"score":9.1,
-	    	"nameChs":"疯狂动物城", 
+	    	"nameChs":"疯狂动物城",
 	    	"nameEng":"Zootopia",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -273,7 +273,7 @@
 	    {
 	    	"rank":37431,
 	    	"score":6.5,
-	    	"nameChs":"生化危机：终章", 
+	    	"nameChs":"生化危机：终章",
 	    	"nameEng":"Resident Evil: The Final Chapter",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -288,7 +288,7 @@
 	    {
 	    	"rank":34185,
 	    	"score":6.5,
-	    	"nameChs":"忍者神龟2：破影而出", 
+	    	"nameChs":"忍者神龟2：破影而出",
 	    	"nameEng":"Teenage Mutant Ninja Turtles: Out of the Shadows",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -303,7 +303,7 @@
 	    {
 	    	"rank":1185,
 	    	"score":7.6,
-	    	"nameChs":"奇异博士", 
+	    	"nameChs":"奇异博士",
 	    	"nameEng":"Doctor Strange",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -318,7 +318,7 @@
 	    {
 	    	"rank":1186,
 	    	"score":7.6,
-	    	"nameChs":"死侍", 
+	    	"nameChs":"死侍",
 	    	"nameEng":"Deadpool",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -333,7 +333,7 @@
 	    {
 	    	"rank":3832,
 	    	"score":6.7,
-	    	"nameChs":"极地大冒险", 
+	    	"nameChs":"极地大冒险",
 	    	"nameEng":"Niko-Lentäjän poika",
 	    	"type":"电影",
 	    	"contry":"芬兰",
@@ -348,7 +348,7 @@
 	    {
 	    	"rank":3832,
 	    	"score":6.7,
-	    	"nameChs":"马丁的早晨", 
+	    	"nameChs":"马丁的早晨",
 	    	"nameEng":"Martin Morning",
 	    	"type":"电影",
 	    	"contry":"法国",
@@ -363,7 +363,7 @@
 	    {
 	    	"rank":3832,
 	    	"score":8.6,
-	    	"nameChs":"超能陆战队", 
+	    	"nameChs":"超能陆战队",
 	    	"nameEng":"Big Hero 6",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -378,7 +378,7 @@
 	    {
 	    	"rank":4432,
 	    	"score":8.1,
-	    	"nameChs":"怪兽大学", 
+	    	"nameChs":"怪兽大学",
 	    	"nameEng":"Monsters University",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -393,7 +393,7 @@
 	    {
 	    	"rank":8251,
 	    	"score":7.1,
-	    	"nameChs":"神奇女侠", 
+	    	"nameChs":"神奇女侠",
 	    	"nameEng":"Wonder Woman",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -408,7 +408,7 @@
 	    {
 	    	"rank":8075,
 	    	"score":7.2,
-	    	"nameChs":"加勒比海盗5：死无对证", 
+	    	"nameChs":"加勒比海盗5：死无对证",
 	    	"nameEng":"Pirates of the Caribbean: Dead Men Tell No Tales",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -423,7 +423,7 @@
 	    {
 	    	"rank":36075,
 	    	"score":4.8,
-	    	"nameChs":"变形金刚5：最后的骑士", 
+	    	"nameChs":"变形金刚5：最后的骑士",
 	    	"nameEng":"Transformers: The Last Knight",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -436,9 +436,9 @@
 	    	"tags":["动作","科幻"]
 	    },
 	    {
-	    	"rank"85,
+	    	"rank":85,
 	    	"score":9.1,
-	    	"nameChs":"龙猫", 
+	    	"nameChs":"龙猫",
 	    	"nameEng":"となりのトトロ",
 	    	"type":"电影",
 	    	"contry":"日本",
@@ -451,9 +451,9 @@
 	    	"tags":["动画","奇幻","冒险"]
 	    },
 	    {
-	    	"rank"85,
+	    	"rank":85,
 	    	"score":9.1,
-	    	"nameChs":"龙猫", 
+	    	"nameChs":"龙猫",
 	    	"nameEng":"となりのトトロ",
 	    	"type":"电影",
 	    	"contry":"日本",
@@ -468,7 +468,7 @@
 	    {
 	    	"rank"6491,
 	    	"score":7.1,
-	    	"nameChs":"香肠派对", 
+	    	"nameChs":"香肠派对",
 	    	"nameEng":"Sausage Party",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -483,7 +483,7 @@
 	    {
 	    	"rank"5571,
 	    	"score":7.3,
-	    	"nameChs":"小黄人大眼萌", 
+	    	"nameChs":"小黄人大眼萌",
 	    	"nameEng":"Minions",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -498,7 +498,7 @@
 	    {
 	    	"rank"5431,
 	    	"score":7.3,
-	    	"nameChs":"异形：契约", 
+	    	"nameChs":"异形：契约",
 	    	"nameEng":"Alien: Covenant",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -513,7 +513,7 @@
 	    {
 	    	"rank"2871,
 	    	"score":7.8,
-	    	"nameChs":"神奇动物在哪里", 
+	    	"nameChs":"神奇动物在哪里",
 	    	"nameEng":"Fantastic Beasts and Where to Find Them",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -523,12 +523,12 @@
 	    	"released":"2017-01-06",
 	    	"desc":"原创翻译双语字幕 更新S07E03 版权原因本站仅提供字幕",
 	    	"state":2,
-	    	"tags":["剧情","奇幻","冒险"] 
+	    	"tags":["剧情","奇幻","冒险"]
 	    },
 	    {
 	    	"rank"2871,
 	    	"score":7.8,
-	    	"nameChs":"神奇动物在哪里", 
+	    	"nameChs":"神奇动物在哪里",
 	    	"nameEng":"Fantastic Beasts and Where to Find Them",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -538,12 +538,12 @@
 	    	"released":"2017-01-06",
 	    	"desc":"原创翻译双语字幕 更新S07E03 版权原因本站仅提供字幕",
 	    	"state":2,
-	    	"tags":["剧情","奇幻","冒险"] 
+	    	"tags":["剧情","奇幻","冒险"]
 	    },
 	    {
 	    	"rank"686,
 	    	"score":9.3,
-	    	"nameChs":"脆莓公园", 
+	    	"nameChs":"脆莓公园",
 	    	"nameEng":"Brickleberry",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -553,12 +553,12 @@
 	    	"released":"2017-01-06",
 	    	"desc":"原创翻译双语字幕 更新S07E03 版权原因本站仅提供字幕",
 	    	"state":2,
-	    	"tags":["喜剧","动画"] 
+	    	"tags":["喜剧","动画"]
 	    },
 	    {
 	    	"rank"39,
 	    	"score":9.1,
-	    	"nameChs":"银河护卫队", 
+	    	"nameChs":"银河护卫队",
 	    	"nameEng":"Guardians of the Galaxy",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -573,7 +573,7 @@
 	    {
 	    	"rank"5978,
 	    	"score":6.9,
-	    	"nameChs":"攻壳机动队", 
+	    	"nameChs":"攻壳机动队",
 	    	"nameEng":"Ghost in the Shell",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -588,7 +588,7 @@
 	    {
 	    	"rank"7068,
 	    	"score":6.8,
-	    	"nameChs":"新木乃伊", 
+	    	"nameChs":"新木乃伊",
 	    	"nameEng":"The Mummy",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -603,7 +603,7 @@
 	    {
 	    	"rank"66,
 	    	"score":9.1,
-	    	"nameChs":"怪兽大学", 
+	    	"nameChs":"怪兽大学",
 	    	"nameEng":"Monsters University",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -618,7 +618,7 @@
 	    {
 	    	"rank"89,
 	    	"score":9.3,
-	    	"nameChs":"卑鄙的我", 
+	    	"nameChs":"卑鄙的我",
 	    	"nameEng":"Despicable Me",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -633,7 +633,7 @@
 	    {
 	    	"rank"3055,
 	    	"score":8.6,
-	    	"nameChs":"爱宠大机密", 
+	    	"nameChs":"爱宠大机密",
 	    	"nameEng":"The Secret Life of Pets",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -648,7 +648,7 @@
 	    {
 	    	"rank"4871,
 	    	"score":7.8,
-	    	"nameChs":"神偷奶爸3", 
+	    	"nameChs":"神偷奶爸3",
 	    	"nameEng":"Despicable Me 3",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -663,7 +663,7 @@
 	    {
 	    	"rank"24871,
 	    	"score":4.8,
-	    	"nameChs":"逆时营救", 
+	    	"nameChs":"逆时营救",
 	    	"nameEng":"Fatal Countdown: Reset",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -678,7 +678,7 @@
 	    {
 	    	"rank"3871,
 	    	"score":7.8,
-	    	"nameChs":"大护法", 
+	    	"nameChs":"大护法",
 	    	"nameEng":"Dahufa",
 	    	"type":"电影",
 	    	"contry":"美国",
@@ -693,7 +693,7 @@
 	    {
 	    	"rank"3871,
 	    	"score":4.4,
-	    	"nameChs":"喵星人", 
+	    	"nameChs":"喵星人",
 	    	"nameEng":"Meow",
 	    	"type":"电影",
 	    	"contry":"中国香港",
