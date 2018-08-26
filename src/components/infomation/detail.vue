@@ -84,8 +84,18 @@
                <button class="btn btn-primary btn-vote">确定投票</button>
              </form>
            </template>
-            <div class="content_wrap" v-html="infoDeatail.content">
-
+            <div class="content_wrap" v-html="">
+              <template v-for="con in infoDeatail.content">
+                <template v-if="con.type =='text'">
+                  <p v-text="con.content"></p>
+                </template>
+                <template v-if="con.type=='title' ">
+                  <h4 v-text="con.content"></h4>
+                </template>
+                <template v-if="con.type=='img'">
+                  <img :src="con.src" />
+                </template>
+              </template>
             </div>
             <div class="panel">
               <div class="panel-heading">
