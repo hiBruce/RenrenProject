@@ -544,13 +544,13 @@
               </div>
               <div class="panel-body">
                 <ul class="play-list play-list-update">
-                  <li v-for="update in plotUpdateArr">
+                  <li v-for="(update,ind) in plotUpdateArr" v-if="ind<16">
                     <div class="img-item">
-                      <div class="desc" v-text="update.desc"></div>
+                      <div class="desc" v-text="update.lastSN+update.lastEP"></div>
                       <div class="tags">
-                        <div class="name" v-text="update.name"></div>
-                        <div class="type" v-text="update.name"></div>
-                        <ul class="corner bottom left" ><li  v-text="update.sort"></li></ul>
+                        <div class="name" v-text="update.nameChs"></div>
+                        <div class="type" v-text="update.type"></div>
+                        <ul class="corner bottom left" ><li  v-text="update.type"></li></ul>
                         <ul class="corner bottom right"  ><li v-text="update.country"></li></ul>
                         <ul class="corner top left"><li  v-text="update.letterLanguage"></li></ul>
                         <ul class="corner top right">
