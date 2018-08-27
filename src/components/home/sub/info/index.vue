@@ -48,7 +48,7 @@
           }
       },
       mounted(){
-        setTimeout(this.init,100)
+        setTimeout(this.init,200)
       }
     }
 </script>

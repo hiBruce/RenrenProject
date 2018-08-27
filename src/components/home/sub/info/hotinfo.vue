@@ -1,5 +1,5 @@
 <template>
-  <div class="content-1 active" >
+  <div class="content  content-1 active" >
     <div id="info-banner" class="info-banner info-banner-inner carousel carousel-fade" data-ride="carousel">
       <ol class="carousel-indicators" >
         <template v-for="(banner,ind) in hotInfoBanner">
@@ -31,7 +31,6 @@
       </a>
     </div>
     <!-- 资讯列表 开始 -->
-
     <ul class="info-list info-list-A1-banner">
       <li  v-for="(info,ind)  in hotInfomationArr">
         <div class="img-item">

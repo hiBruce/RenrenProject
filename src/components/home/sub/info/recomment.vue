@@ -1,5 +1,5 @@
 <template>
-  <div class="content-4">
+  <div class="content content-4">
     <ul class="info-list info-list-B1">
       <li v-for="(recom,ind) in recomList">
         <div class="img-item">

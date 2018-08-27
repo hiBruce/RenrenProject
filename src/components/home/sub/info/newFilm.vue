@@ -1,5 +1,5 @@
 <template>
-  <div class="content-3" >
+  <div class="content content-3" >
     <ul class="info-list info-list-A3">
       <li  v-for="(info,ind)  in newFilmList">
         <div class="img-item">

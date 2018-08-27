@@ -1,5 +1,5 @@
 <template>
-  <div class="content-2" >
+  <div class="content content-2">
     <!-- 影评剧评 开始 -->
     <ul class="info-list info-list-A1">
       <li  v-for="(info,ind)  in commentList">

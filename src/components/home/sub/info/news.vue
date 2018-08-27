@@ -1,5 +1,5 @@
 <template>
-  <div class="content-5" >
+  <div class="content content-5" >
     <ul class="info-list info-list-A3">
       <li  v-for="(info,ind)  in newsList">
         <div class="img-item">
