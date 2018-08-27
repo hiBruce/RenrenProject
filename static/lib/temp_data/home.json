@@ -24,7 +24,7 @@
       "url":"",
       "processArr":[
         {
-         "name":"阿宝-《功夫熊猫》",
+          "name":"阿宝-《功夫熊猫》",
           "percent":15
         },{
           "name":"小黄人-《小黄人》",
@@ -114,5 +114,10 @@
         }
       ]
     }
-  ]
+  ],
+  "snsActivity":{
+    "imgUrl":"./static/images/banner/activity.jpg",
+    "title":"社区活动上线，抢楼拿奖品",
+    "intro":"凡是在活动贴内抢占了99、199、299、399楼的朋友，均能免费获得由字幕组提供的美剧爱好者体恤一件。"
+  }
 }

@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import headerCom from './components/header/header'
-import footerCom from './components/footer/footer'
+import headerCom from './components/common/header/header'
+import footerCom from './components/common/footer/footer'
 
 export default {
   name: 'App',

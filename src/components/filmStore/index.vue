@@ -703,7 +703,7 @@
 </template>
 
 <script>
-  import searchCom from '../serarch_component/search'
+  import searchCom from '../common/serarch/search'
     export default {
       name: "film",
       data(){
