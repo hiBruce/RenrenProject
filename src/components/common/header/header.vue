@@ -2,7 +2,7 @@
   <!---------header------------>
   <header class="ui-header">
     <div class="ui-logo">
-      <img src="static/images/logo.png" class="logo" alt="zimuzu.tv"/>
+      <img src="~img/logo.png" class="logo" alt="zimuzu.tv"/>
       <div class="logo-bg"></div>
     </div>
     <ul class="ui-nav ui-mnav">
@@ -38,11 +38,11 @@
           <li class="ialess">
             <ul class="inline-wrapper">
               <li>
-                <img src="static/images/qrcode/code-APP.png" alt="" class="qr-code"/>
+                <img src="~img/qrcode/code-APP.png" alt="" class="qr-code"/>
                 <p>扫码下载手机APP</p>
               </li>
               <li>
-                <img src="static/images/qrcode/code-H5.png" alt="" class="qr-code"/>
+                <img src="~img/qrcode/code-H5.png" alt="" class="qr-code"/>
                 <p>扫码访问手机H5版</p>
               </li>
 
