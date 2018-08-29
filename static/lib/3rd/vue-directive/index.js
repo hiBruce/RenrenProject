@@ -8,11 +8,11 @@ Vue.directive("compute-date",{
        try{
          var time = Date.parse(new Date(binding.value));
        }catch(e){
-         throw Error("请传入正确的时间格式")
-         return;
+         //throw Error("请传入正确的时间格式")
+         return ;
        };
       if(!time){
-        throw Error("请传入正确的时间格式")
+        //throw Error("请传入正确的时间格式")
         return;
       }
         var str ="";
@@ -58,6 +58,27 @@ Vue.directive("compute-date",{
         };
         $(el).text(str)
     },
+});
+
+/*
+* 获取年
+* */
+Vue.directive("get-year",{
+  bind:function(el,binding,vnode){
+    try{
+      var time = Date.parse(new Date(binding.value));
+    }catch(e){
+      throw Error("请传入正确的时间格式")
+      return;
+    };
+    if(!time){
+      throw Error("请传入正确的时间格式")
+      return;
+    }
+    var year =new Date(time).getFullYear()
+
+    $(el).text(year)
+  },
 });
 
 

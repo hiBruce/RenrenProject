@@ -35,6 +35,17 @@ Pagination.prototype.init = function (params) {
     this.createEle()
 
 };
+/*
+* @description 更新分页数据
+* */
+Pagination.prototype.update = function(params){
+  this.pageTotal = parseInt(params.pageTotal);
+  this.showMaxNum = params.maxShowNum || this.maxShowNum;
+  this.len = (this.pageTotal > this.showMaxNum) ? this.showMaxNum : this.pageTotal;
+  this.nowPage = parseInt(params.nowPage) || 1;
+  this.div && this.div.empty();
+  this.createEle();
+};
 
 /*
 * @description 参数判断
@@ -251,13 +262,16 @@ Pagination.prototype.nextClick = function (e, pagination) {
 * @description 尾页按钮点击事件
 * */
 Pagination.prototype.lastClick = function (e, pagination) {
+  console.log(11111)
     var ev = e || window.event;
     var target  = e.target || e.srcElement;
     var $e = this.getThisLi($(target))
     if (!$e.hasClass('disabled')) {
+      console.log(2233)
         pagination.nowPage = parseInt(this.pageTotal);
         pagination.doCb($e)
-    }
+    };
+    console.log(22)
 };
 /*
 * @description 设置当前页码，执行回调
