@@ -101,13 +101,7 @@
     name: 'home',
     data () {
       return {
-        // todayTvList:[],    //今日播出的列表数据
         infomationObj:{},  //热门资讯等数据
-        // hotShortComArr:[], //热门短评数据
-        // snsActivity:{},    //社区活动数据
-        // hotfilmArr:[],     //全球热映数据
-        // plotUpdateArr:[],  //剧情更新数据
-        // interactArr:[],    //话题互动数据
         hotInfomationArr:[], //热门资讯
         hotInfoBanner:[],   //热门资讯banner
       }
@@ -122,11 +116,6 @@
             params:null,
             method:'get'
           },
-          // {
-          //   url:"../static/lib/temp_data/interact.json",
-          //   params:null,
-          //   method:'get'
-          // },
           {
             url:"../static/lib/temp_data/info.json",
             params:null,

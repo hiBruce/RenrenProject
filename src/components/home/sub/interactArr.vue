@@ -123,7 +123,7 @@
         this.getData()
       },
       mounted(){
-          setTimeout(this.init,200)
+          setTimeout(this.init,1200)
       }
     }
 </script>
