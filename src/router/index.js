@@ -23,6 +23,16 @@ export default new Router({
       path:"/filmstore",
       name:"filmstore",
       component:() => import('@/components/filmStore/index'),
+    },
+    {
+      path:"/filmstore/:id",
+      name:"filmDetail",
+      component:() => import('@/components/filmStore/detail'),
+    },
+    {
+      path:"/filmstore/episode/:id",
+      name:"episode",
+      component:() => import('@/components/filmStore/episode2'),
     }
   ]
 })

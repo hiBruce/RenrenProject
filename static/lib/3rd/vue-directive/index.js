@@ -103,3 +103,13 @@ Vue.directive("compute-numbybit",{
     $(el).text(num)
   }
 });
+
+/*
+* 获取字符串中的数字
+* */
+Vue.directive('get-number',{
+  bind:function(el,binding,vnode){
+     var num = binding.value.replace(/[^0-9]/ig,"");
+     $(el).text(num)
+  }
+});

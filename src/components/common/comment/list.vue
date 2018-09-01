@@ -161,7 +161,7 @@
         getDetailData(){
           var self = this;
           var params={};
-          Request.get('../static/lib/temp_data/common/info.json',params,(result)=>{
+          Request.get('../static/lib/temp_data/common/commentList.json',params,(result)=>{
             self.commentList = result.commentList;
             if(self.commentList.length>0){
               self.commentList.forEach(function(ele,i){
@@ -199,7 +199,7 @@
             page:page||1
           };
 
-          Request.get('../static/lib/temp_data/common/info.json',params,(result)=>{
+          Request.get('../static/lib/temp_data/common/commentList.json',params,(result)=>{
               var item =  JSON.parse(JSON.stringify(self.commentList[ind]));
               item.comment =result.commentLevel2List.slice(params.page*10,params.page*10+10);
               self.$set(self.commentList,ind,item);
@@ -216,15 +216,20 @@
           if(this.pageArr[ind]){
             this.pageArr[ind] = null;
           }
-          var pageControl =  new Pagination({
-            container: par.find(".pagination-simple"),
-            pageTotal:pageTotal,
-            nowPage:nowPage,
-            callback: function (page) {
-              self.getLevel2CommentList(ind,page)
-            }
-          });
-          this.pageArr.splice(ind,pageControl)
+          if(!par){
+            par = $(".comment-sub").find('.comment-item').eq(ind)
+          }
+          setTimeout(function(){
+            var pageControl =  new Pagination({
+              container: par.find(".pagination-simple"),
+              pageTotal:pageTotal,
+              nowPage:nowPage,
+              callback: function (page) {
+                self.getLevel2CommentList(ind,page)
+              }
+            });
+            self.pageArr.splice(ind,pageControl)
+          },0)
 
         }
       },

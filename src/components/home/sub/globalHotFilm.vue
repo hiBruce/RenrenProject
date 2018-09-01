@@ -6,11 +6,11 @@
     <div class="panel-body">
       <div class="hotfilm-wrapper">
         <ul class="hotfilm-tabs">
-          <li :class="!ind?'active':''" v-for="(film,ind )  in hotfilmArr" v-text="ind+1"></li>
+          <li :class="!ind?'active':''" v-for="(film,ind )  in hotfilmArr" v-text="ind+1" v-if="ind<3"></li>
         </ul>
         <div class="scroll-wrapper"><div class="scroll">
           <div class="hotfilm-content tab-content ani-slide">
-            <div class="film active" v-for="(film,ind) in hotfilmArr" :class="ind?'':'active'">
+            <div class="film active" v-for="(film,ind) in hotfilmArr" :class="ind?'':'active'" v-if="ind<3">
               <div class="img-item">
                 <div class="score" v-text="film.score"></div>
                 <img :src="film.imgUrl" alt="" />

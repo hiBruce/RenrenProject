@@ -61,8 +61,8 @@
         <div class="detail-list viewType-toggle-support" v-if="infoListArr.length>0">
           <!--影视库模板-->
           <template v-if="tab==2">
-            <div class="film-list viewType-toggle-support" v-for="(list,ind) in infoListArr" v-if="ind<page*6">
-              <div class="item">
+            <div class="film-list viewType-toggle-support" >
+              <div class="item" v-for="(list,ind) in infoListArr" v-if="ind<page*6">
                 <div class="img-item">
                   <a href="#"><img :src="list.imgUrl"/></a>
                   <div class="score" v-text="list.score"></div>

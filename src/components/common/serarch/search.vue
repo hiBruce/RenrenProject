@@ -190,7 +190,7 @@
 
 <script>
     export default {
-        name: "search",
+        name: "searchcom",
         methods:{
           init(){
             $(".search-input").on("focusin", function () {

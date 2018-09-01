@@ -97,7 +97,7 @@
                 </template>
               </template>
             </div>
-            <comment></comment>
+            <comment type="1"></comment>
           </div>
         </div>
         <div class="col-xs-3 col-sidebar">

@@ -12,11 +12,13 @@
         <button class="comment-btn btn" @click="submitComment"><span class="desc">发表评论</span></button>
       </div>
     </div>
-    <commentlist></commentlist>
+    <list1 v-if="type==1"></list1>
+    <list2 v-else-if="type==2"></list2>
   </div>
 </template>
 <script>
-  import commentlist from './list'
+  import list1 from './list';
+  import list2 from './list2';
     export default {
       name: "commentMain",
       data(){
@@ -24,7 +26,7 @@
           commentContent:''
         }
       },
-      components: { commentlist },
+      components: { list1,list2 },
       methods:{
         /**
         * 提交评论
@@ -36,7 +38,8 @@
         }
       },
       created(){
-      }
+      },
+      props:['type']
     }
 </script>
 
