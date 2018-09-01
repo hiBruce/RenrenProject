@@ -103,7 +103,7 @@
         <div class="col-xs-3 col-sidebar">
           <div class="siderbar-wrapper">
             <relatviefilm></relatviefilm>
-            <relativeinfo></relativeinfo>
+            <relativeinfo :id="$route.params.id"></relativeinfo>
           </div>
         </div>
 

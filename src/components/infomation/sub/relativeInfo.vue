@@ -37,7 +37,9 @@
       methods:{
         getListData(){
           var self = this;
-          var params={};
+          var params={
+            id:this.id
+          };
           Request.get('../static/lib/temp_data/common/info.json',params,(result)=>{
             self.infoList = result.infomation;
           })
@@ -45,7 +47,8 @@
       },
       created(){
         this.getListData()
-      }
+      },
+      props:['id']
     }
 </script>
 

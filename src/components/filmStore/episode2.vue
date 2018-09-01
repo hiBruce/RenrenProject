@@ -73,7 +73,9 @@
 
             </div>
           </div>
-          <comment type="2"></comment>
+          <div class="panel-inner">
+           <comment type="2"></comment>
+          </div>
         </div>
         <div class="col-xs-2 col-sidebar">
           <sidernav></sidernav>

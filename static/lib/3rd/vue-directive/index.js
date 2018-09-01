@@ -14,10 +14,11 @@ Vue.directive("compute-date",{
       if(!time){
         //throw Error("请传入正确的时间格式")
         return;
-      }
+      };
         var str ="";
         var nowStamp = Date.parse(new Date());
-        var day = parseInt((nowStamp - time)/(60*60*1000*24));
+        var text=(nowStamp - time)>0?'前':'后'
+        var day = Math.abs(parseInt((nowStamp - time)/(60*60*1000*24)));
         var dictionaryArr =['一','二','三','四','五','六','七','八','九','十','十一','十二'];
         switch (day){
           case 0:
@@ -30,7 +31,7 @@ Vue.directive("compute-date",{
           case 5:
           case 6:
           case 7:
-            str =dictionaryArr[day-1] +"天前";
+            str =dictionaryArr[day-1] +"天"+text;
             break;
           default:
             resloveMoreThanSeventDay()
@@ -40,7 +41,7 @@ Vue.directive("compute-date",{
         * 处理小于一天的情况
         * */
         function resloveLessThanOneDay(){
-          str= parseInt((nowStamp - time)/(60*60*1000))+'小时前';
+          str= parseInt((nowStamp - time)/(60*60*1000))+'个小时'+text;
         };
         /*
         * 处理大于7天的
@@ -49,11 +50,11 @@ Vue.directive("compute-date",{
         function resloveMoreThanSeventDay(){
           var MonthNum = parseInt(day/30);
           if(MonthNum===0){
-            str=dictionaryArr[parseInt(day/7)-1]+'星期前'
+            str=dictionaryArr[parseInt(day/7)-1]+'个星期'+text
           }else if(MonthNum<12){
-            str=dictionaryArr[MonthNum-1]+'月前'
+            str=dictionaryArr[MonthNum-1]+'个月'+text
           }else{
-            str = '一年前'
+            str = '一年'+text
           }
         };
         $(el).text(str)
