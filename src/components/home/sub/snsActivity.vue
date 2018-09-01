@@ -4,7 +4,7 @@
       <span class="desc">社区活动</span>
     </div>
     <div class="panel-body">
-      <div class="community-activity" v-if="snsActivity">
+      <div class="community-activity" v-if="snsActivity" @click="goDetail(snsActivity.id)">
         <img :src="snsActivity.imgUrl" alt="" />
         <h3 v-text="snsActivity.title"></h3>
         <p v-text="snsActivity.intro"></p>
@@ -28,6 +28,9 @@
             this.snsActivity = data.snsActivity;
           })
         },
+        goDetail(id){
+          this.$router.push("/sns/"+id)
+        }
       },
       created(){
         this.getData()

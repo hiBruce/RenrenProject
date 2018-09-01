@@ -20,6 +20,11 @@ export default new Router({
       component:() => import('@/components/infomation/detail'),
     },
     {
+      path:"/sns/:id",
+      name:"snsAcitivity",
+      component:() => import('@/components/infomation/snsActivity'),
+    },
+    {
       path:"/filmstore",
       name:"filmstore",
       component:() => import('@/components/filmStore/index'),
